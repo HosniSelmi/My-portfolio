@@ -48,17 +48,11 @@ const Contact = () => {
           <article className="contact__option">
             <BsWhatsapp className='contact__option-icon' />
             <h4>Whatsapp</h4>
-            <h5>+216 93109689</h5>
-            <a href="https://wa.me/21693109689" rel='noreferrer' target='_blank'>Send a message</a>
+            <h5>+216 27507236</h5>
+            <a href="https://wa.me/21627507236" rel='noreferrer' target='_blank'>Send a message</a>
           </article>
         </div>
 
-        <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name='name' placeholder='Your Full Name' required />
-          <input type="email" name='email' placeholder='Email' required />
-          <textarea name="message" rows="10" placeholder='Your Message' required></textarea>
-          <button type='sumbit' className='btn btn-primary'>Send a Message</button>
-        </form>
       </div>
     </section>
   )
