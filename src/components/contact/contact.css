@@ -15,14 +15,15 @@
 
 .contact__option {
     background: var(--color-bg-variant);
-  padding: 1.5rem; /* slightly more padding */
+  padding: 2rem; /* slightly more padding */
   border-radius: 1.2rem;
   text-align: center;
   border: 1px solid transparent;
   transition: var(--transition);
   flex: 1; /* allows it to grow */
-  min-width: 250px; /* optional: makes them wider on larger screens */
-  max-width: 350px; /* optional: prevents being too wide */
+  min-width: 300px; /* optional: makes them wider on larger screens */
+  max-width: 400px; /* optional: prevents being too wide */
+  height: 280px; 
 }
 
 .contact__option:hover {
