@@ -31,7 +31,7 @@ const About = () => {
             <article className='about__card'>
               <FiUsers className='about__icon'/>
               <h5>Clients</h5>
-              <small>5+ Worldwide</small>
+              <small>Trusted by 5+ clients locally.</small>
             </article>
 
             <article className='about__card'>
@@ -42,8 +42,7 @@ const About = () => {
           </div>
 
           <p>
-          I'm an engineering graduate from the National School of Computer Science.
-          I think everyone deserves a chance at a better life. Perhaps I do not have the right amount of experience, but I have the sincerity, the dedication and the passion to work hard. So I will be sure not to leave anything to chance to satisfy my superiors and do the job.
+          I am a software engineering graduate from the National School of Computer Science. While I may not yet have extensive professional experience, I bring sincerity, dedication, and a strong passion for learning and growth. I believe everyone deserves the chance to prove themselves, and I’m fully committed to giving my best, exceeding expectations, and continuously improving to contribute meaningfully to any team I join.
           </p>
 
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
