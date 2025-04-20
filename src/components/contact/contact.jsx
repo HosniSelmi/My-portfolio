@@ -48,7 +48,7 @@ const Contact = () => {
           <article className="contact__option">
             <RiMessengerFill className='contact__option-icon' />
             <h4>Messenger</h4>
-            <h5>Name</h5>
+            <h5>Hosny Selmy</h5>
             <a href="https://m.me/hosny.selmy.1" rel='noreferrer' target='_blank'>Tap here to send a message</a>
           </article>
 
