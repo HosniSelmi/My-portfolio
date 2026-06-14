@@ -11,10 +11,10 @@ const frontend = [
 ]
 
 const backend = [
+  { name: 'C++', level: 'Advanced' },
+  { name: 'Python', level: 'Advanced' },
   { name: 'Node.js', level: 'Advanced' },
   { name: 'Express.js', level: 'Advanced' },
-  { name: 'Python', level: 'Advanced' },
-  { name: 'C++', level: 'Advanced' },
   { name: 'NestJS', level: 'Intermediate' },
   { name: 'Symfony', level: 'Advanced' },
   { name: 'Flask', level: 'Advanced' },

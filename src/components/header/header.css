@@ -64,6 +64,7 @@ header::before {
   border-radius: 50%;
   overflow: hidden;
   position: relative;
+  background: var(--bg);
 }
 
 .header__image img {

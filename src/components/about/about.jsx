@@ -1,7 +1,7 @@
 import React from 'react'
 import './about.css'
 
-import ME from '../../assets/me.png'
+import ME from '../../assets/me1.png'
 
 const About = () => {
   return (
@@ -24,7 +24,7 @@ const About = () => {
           <div className="about__content reveal">
             <div className="about__stats">
               <div className="about__stat">
-                <span className="about__stat-number">1+</span>
+                <span className="about__stat-number">2+</span>
                 <span className="about__stat-label">Years Experience</span>
               </div>
               <div className="about__stat">
