@@ -1,134 +1,79 @@
 import React from 'react'
 import './experience.css'
 
-import {BsPatchCheckFill} from 'react-icons/bs'
+const frontend = [
+  { name: 'HTML', level: 'Advanced' },
+  { name: 'CSS', level: 'Intermediate' },
+  { name: 'JavaScript', level: 'Advanced' },
+  { name: 'React', level: 'Advanced' },
+  { name: 'Flutter', level: 'Advanced' },
+  { name: 'Angular', level: 'Basics' },
+]
+
+const backend = [
+  { name: 'Node.js', level: 'Advanced' },
+  { name: 'Express.js', level: 'Advanced' },
+  { name: 'Python', level: 'Advanced' },
+  { name: 'C++', level: 'Advanced' },
+  { name: 'NestJS', level: 'Intermediate' },
+  { name: 'Symfony', level: 'Advanced' },
+  { name: 'Flask', level: 'Advanced' },
+  { name: 'Spring Boot', level: 'Intermediate' },
+  { name: 'MongoDB', level: 'Advanced' },
+  { name: 'MySQL', level: 'Advanced' },
+]
+
+const levelDots = {
+  Advanced: 3,
+  Intermediate: 2,
+  Basics: 1,
+}
+
+function SkillCard({ name, level }) {
+  return (
+    <div className="skill__card">
+      <div className="skill__info">
+        <span className="skill__name">{name}</span>
+        <span className="skill__level">{level}</span>
+      </div>
+      <div className="skill__dots">
+        {[1, 2, 3].map((i) => (
+          <span
+            key={i}
+            className={`skill__dot ${i <= levelDots[level] ? 'filled' : ''}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const Experience = () => {
   return (
-    <section id='experience'>
-      <h5>What Skills I Have</h5>
-      <h2>My Experience</h2>
-
-      <div className="container experience__container">
-        <div className="experience__frontend">
-          <h3>Frontend Development</h3>
-          <div className="experience__content">
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>HTML</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
-
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>CSS</h4>
-                <small className='text-light'>Intermediate</small>
-              </div>
-            </article>
-
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>JavaScript</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
-
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>React</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
-
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>Flutter</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
-
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>Angular</h4>
-                <small className='text-light'>Basics</small>
-              </div>
-            </article>
-          </div>
+    <section id="experience">
+      <div className="container">
+        <div className="section-header reveal">
+          <h5>Skills</h5>
+          <h2>My Experience</h2>
         </div>
 
-        <div className="experience__backend">
-          <h3>Backend Development</h3>
-          <div className="experience__content">
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>Node JS</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
+        <div className="experience__grid">
+          <div className="experience__column reveal">
+            <h3 className="experience__column-title">Frontend</h3>
+            <div className="experience__skills">
+              {frontend.map((skill) => (
+                <SkillCard key={skill.name} {...skill} />
+              ))}
+            </div>
+          </div>
 
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>Express.js</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
-            
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>NestJS</h4>
-                <small className='text-light'>Intermediate</small>
-              </div>
-            </article>
-
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>Symfony</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
-            
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>Flask</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
-            
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>Spring Boot</h4>
-                <small className='text-light'>Intermediate</small>
-              </div>
-            </article>
-
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>MongoDB</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
-
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>MySQL</h4>
-                <small className='text-light'>Advanced</small>
-              </div>
-            </article>
+          <div className="experience__column reveal">
+            <h3 className="experience__column-title">Backend & Database</h3>
+            <div className="experience__skills">
+              {backend.map((skill) => (
+                <SkillCard key={skill.name} {...skill} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

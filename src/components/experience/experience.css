@@ -1,75 +1,104 @@
-
-
-.experience__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+.experience__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
-.experience__container > div {
-    background: var(--color-bg-variant);
-    padding: 2.4rem 5rem;
-    border-radius: 2rem;
-    border: 1px solid transparent;
-    transition: var(--transition);
+.experience__column {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: var(--transition);
 }
 
-.experience__container > div:hover {
-    background-color: transparent;
-    border-color: var(--color-primary-variant);
-    cursor: default;
+.experience__column:hover {
+  border-color: var(--gold-dim);
+  background: var(--surface-hover);
 }
 
-.experience__container > div h3 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
+.experience__column-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.experience__content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 2rem;
+.experience__skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
 }
 
-.experience__details {
-    display: flex;
-    gap: 1rem;
+.skill__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.02);
+  transition: var(--transition);
+  gap: 0.5rem;
 }
 
-.experience__details-icon {
-    margin-top: 6px;
-
+.skill__card:hover {
+  background: var(--gold-dim);
 }
 
-/*************** MEDIA QUERIES ( MEDIUM DEVICES )*********************/
+.skill__info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.skill__name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.skill__level {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.skill__dots {
+  display: flex;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.skill__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: var(--transition);
+}
+
+.skill__dot.filled {
+  background: var(--gold);
+}
 
 @media screen and (max-width: 1024px) {
-    .experience__container {
-        grid-template-columns: 1fr;
-    }
-
-    .experience__container > div {
-        width: 80%;
-        padding: 2rem;
-        margin: 0 auto;
-    }
-
-    .experience__content {
-        padding: 1rem;
-    }
+  .experience__grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+  }
 }
 
-
-/*************** MEDIA QUERIES ( SMALL DEVICES )*********************/
-
 @media screen and (max-width: 600px) {
-    .experience__container {
-        gap: 1rem;
-    }
+  .experience__skills {
+    grid-template-columns: 1fr;
+  }
 
-    .experience__container > div {
-        width: 100%;
-        padding: 2rem 1rem;
-    }
+  .experience__column {
+    padding: 1.5rem;
+  }
 }

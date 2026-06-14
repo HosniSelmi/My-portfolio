@@ -1,25 +1,56 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './nav.css'
 
-import {AiOutlineHome} from 'react-icons/ai'
-import {AiOutlineUser} from 'react-icons/ai'
-import {BiBook} from 'react-icons/bi'
-import {RiServiceLine} from 'react-icons/ri'
-import {BiMessageSquareDetail} from 'react-icons/bi'
+import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
+import { BiBook, BiMessageSquareDetail } from 'react-icons/bi'
+import { VscFolderLibrary } from 'react-icons/vsc'
 
-import { useState } from 'react'
+const sections = [
+  { id: '#', label: 'Home', Icon: AiOutlineHome },
+  { id: '#about', label: 'About', Icon: AiOutlineUser },
+  { id: '#experience', label: 'Experience', Icon: BiBook },
+  { id: '#portfolio', label: 'Portfolio', Icon: VscFolderLibrary },
+  { id: '#contact', label: 'Contact', Icon: BiMessageSquareDetail },
+]
 
 const Nav = () => {
+  const [activeNav, setActiveNav] = useState('#')
 
-const [activeNav, setActiveNav] = useState('#');
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id')
+            setActiveNav(id ? `#${id}` : '#')
+          }
+        })
+      },
+      { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' }
+    )
+
+    sections.forEach(({ id }) => {
+      const targetId = id === '#' ? 'root' : id.slice(1)
+      const el = document.getElementById(targetId)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <nav>
-      <a href="/#" onClick={() => setActiveNav('#')} className= {activeNav === '#' ? 'active' : ''}><AiOutlineHome/></a>
-      <a href="#about" onClick={() => setActiveNav('#about')} className= {activeNav === '#about' ? 'active' : ''}><AiOutlineUser/></a>
-      <a href="#experience"onClick={() => setActiveNav('#experience')} className= {activeNav === '#experience' ? 'active' : ''}><BiBook/></a>
-      <a href="#portfolio" onClick={() => setActiveNav('#portfolio')} className= {activeNav === '#portfolio' ? 'active' : ''}><RiServiceLine/></a>
-      <a href="#contact" onClick={() => setActiveNav('#contact')} className= {activeNav === '#contact' ? 'active' : ''}><BiMessageSquareDetail/></a>
+      {sections.map(({ id, label, Icon }) => (
+        <a
+          key={id}
+          href={`/${id}`}
+          onClick={() => setActiveNav(id)}
+          className={activeNav === id ? 'active' : ''}
+          aria-label={label}
+        >
+          <Icon />
+        </a>
+      ))}
     </nav>
   )
 }
