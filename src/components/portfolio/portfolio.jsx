@@ -22,6 +22,7 @@ const data = [
     title: 'My First Project',
     tags: ['React', 'Node.js'],
     github: 'https://github.com/HosniSelmi/myfirstproject',
+    demo: 'https://myfirstproject-mhs8.vercel.app/',
   },
   {
     id: 3,
@@ -29,6 +30,7 @@ const data = [
     title: 'Blog Website',
     tags: ['React', 'Express.js'],
     github: 'https://github.com/HosniSelmi/Blog-Website',
+    demo: 'https://blog-website-kxjp.onrender.com/',
   },
   {
     id: 4,
