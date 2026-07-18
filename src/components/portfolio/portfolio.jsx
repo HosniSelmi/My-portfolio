@@ -14,6 +14,7 @@ const data = [
     title: "PFE E-Commerce Plateforme",
     tags: ["Symfony", "React + TypeScript", "Docker", "MySQL"],
     github: "https://github.com/HosniSelmi/PFE",
+    demo: "https://drive.google.com/file/d/11kGldrLrgkg4bLNp2_HKH6iUPeq75L08/view",
   },
   {
     id: 2,
