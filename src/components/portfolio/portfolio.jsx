@@ -1,16 +1,27 @@
 import React, { useState } from 'react'
 import './portfolio.css'
 
-import IMG1 from '../../assets/portfolio1.jpg'
-import IMG2 from '../../assets/portfolio2.jpg'
-import IMG3 from '../../assets/portfolio3.jpg'
+import IMG1 from '../../assets/portfolio3.jpg'
 import IMG4 from '../../assets/portfolio5.png'
 import IMG5 from '../../assets/portfolio6.jpg'
+import ALGOVAULT from '../../assets/mhsalgovault.PNG'
+import DIGITALCAR from '../../assets/digitalcar.PNG'
+import ECOMMERCE from '../../assets/ecommerce.PNG'
+import BLOGWEBSITE from '../../assets/blogwebsite.PNG'
+import FIRSTPROJECT from '../../assets/firstproject.PNG'
 
 const data = [
   {
+    id: 8,
+    image: ALGOVAULT,
+    title: "AlgoVault",
+    tags: ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS"],
+    github: "https://github.com/HosniSelmi/AlgoVault",
+    demo: "https://algo-vault-three.vercel.app/",
+  },
+  {
     id: 1,
-    image: IMG1,
+    image: DIGITALCAR,
     title: "Digital Car Marketplace",
     tags: ["React", "Express.js", "PostgreSQL", "Tailwind CSS"],
     github: "https://github.com/HosniSelmi/Digital-Car-Marketplace",
@@ -18,27 +29,27 @@ const data = [
   },
   {
     id: 2,
-    image: IMG1,
+    image: ECOMMERCE,
     title: "PFE E-Commerce Plateforme",
     tags: ["Symfony", "React + TypeScript", "Docker", "MySQL"],
     github: "https://github.com/HosniSelmi/PFE",
     demo: "https://drive.google.com/file/d/11kGldrLrgkg4bLNp2_HKH6iUPeq75L08/view",
   },
   {
-    id: 3,
-    image: IMG2,
-    title: 'My First Project',
-    tags: ['React', 'Node.js'],
-    github: 'https://github.com/HosniSelmi/myfirstproject',
-    demo: 'https://myfirstproject-mhs8.vercel.app/',
-  },
-  {
     id: 4,
-    image: IMG3,
+    image: BLOGWEBSITE,
     title: 'Blog Website',
     tags: ['React', 'Express.js'],
     github: 'https://github.com/HosniSelmi/Blog-Website',
     demo: 'https://blog-website-kxjp.onrender.com/',
+  },
+  {
+    id: 3,
+    image: FIRSTPROJECT,
+    title: 'My First Project',
+    tags: ['React', 'Node.js'],
+    github: 'https://github.com/HosniSelmi/myfirstproject',
+    demo: 'https://myfirstproject-mhs8.vercel.app/',
   },
   {
     id: 5,
@@ -63,7 +74,7 @@ const data = [
   },
 ]
 
-const ITEMS_PER_PAGE = 4
+const ITEMS_PER_PAGE = 3
 
 const Portfolio = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -90,7 +101,7 @@ const Portfolio = () => {
 
         <div className="portfolio__grid">
           {visibleData.map(({ id, image, title, tags, github, demo }) => (
-            <article key={id} className="portfolio__card reveal">
+            <article key={id} className="portfolio__card">
               <div className="portfolio__image">
                 <img src={image} alt={title} loading="lazy" />
                 <div className="portfolio__overlay">
