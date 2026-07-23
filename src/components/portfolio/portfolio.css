@@ -98,6 +98,47 @@
   font-size: 0.8rem;
 }
 
+.portfolio__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.portfolio__page-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-dim);
+  background: transparent;
+  color: var(--gold-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.portfolio__page-btn:hover:not(:disabled) {
+  background: var(--gold-dim);
+  color: var(--gold);
+}
+
+.portfolio__page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.portfolio__page-info {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--gold-light);
+  min-width: 4rem;
+  text-align: center;
+}
+
 @media screen and (max-width: 1024px) {
   .portfolio__grid {
     grid-template-columns: repeat(2, 1fr);

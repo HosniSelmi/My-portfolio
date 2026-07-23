@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './portfolio.css'
 
 import IMG1 from '../../assets/portfolio1.jpg'
@@ -63,7 +63,23 @@ const data = [
   },
 ]
 
+const ITEMS_PER_PAGE = 4
+
 const Portfolio = () => {
+  const [currentPage, setCurrentPage] = useState(1)
+  const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE)
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+  const visibleData = data.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+
+  const goToPrevPage = () => {
+    if (currentPage > 1) setCurrentPage((p) => p - 1)
+  }
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage((p) => p + 1)
+  }
+
   return (
     <section id="portfolio">
       <div className="container">
@@ -73,7 +89,7 @@ const Portfolio = () => {
         </div>
 
         <div className="portfolio__grid">
-          {data.map(({ id, image, title, tags, github, demo }) => (
+          {visibleData.map(({ id, image, title, tags, github, demo }) => (
             <article key={id} className="portfolio__card reveal">
               <div className="portfolio__image">
                 <img src={image} alt={title} loading="lazy" />
@@ -101,6 +117,28 @@ const Portfolio = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="portfolio__pagination">
+          <button
+            className="portfolio__page-btn"
+            onClick={goToPrevPage}
+            disabled={currentPage === 1}
+            aria-label="Previous page"
+          >
+            &larr;
+          </button>
+          <span className="portfolio__page-info">
+            {currentPage} / {totalPages}
+          </span>
+          <button
+            className="portfolio__page-btn"
+            onClick={goToNextPage}
+            disabled={currentPage === totalPages}
+            aria-label="Next page"
+          >
+            &rarr;
+          </button>
         </div>
       </div>
     </section>
